@@ -110,8 +110,40 @@ const initialState = {
         }
       ],
       document: {
-        isVisible: false
-      }
+        isVisible: true
+      },
+      agendaOptions: [
+        {
+          id: 0,
+          name: 'Download',
+          isActive: false,
+          src: ''
+        },
+        {
+          id: 1,
+          name: 'Progress',
+          isActive: false,
+          src: ''
+        },
+        {
+          id: 2,
+          name: 'Send by Email',
+          isActive: true,
+          src: ''
+        },
+        {
+          id: 3,
+          name: 'Add Item to Agenda',
+          isActive: true,
+          src: ''
+        },
+        {
+          id: 4,
+          name: 'Add document to Item Agenda',
+          isActive: true,
+          src: ''
+        }
+      ]
     }
   }
 }
