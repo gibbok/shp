@@ -2,7 +2,7 @@ import dotProp from 'dot-prop-immutable'
 import * as types from './actionsTypes'
 import deepFreeze from 'deep-freeze'
 import _ from 'lodash'
-import {removeFileExtension} from './utility'
+import {removeFileExtension, replaceCharacters} from './utility'
 
 const initialState = {
   agenda: {
@@ -88,7 +88,6 @@ const initialState = {
       agendaDocs: [
         {
           id: 0,
-          // orderRef: 1,
           agendaItemId: null,
           fileName: 'admin.pdf',
           fileUrl: 'admin.pdf',
@@ -96,7 +95,6 @@ const initialState = {
         },
         {
           id: 1,
-          // orderRef: 1,
           agendaItemId: null,
           fileName: '1_admin.pdf',
           fileUrl: '1_admin.pdf',
@@ -104,7 +102,6 @@ const initialState = {
         },
         {
           id: 2,
-          // orderRef: 2,
           agendaItemId: null,
           fileName: 'minutes_last_meeting.pdf',
           fileUrl: 'minutes_last_meeting.pdf',
@@ -112,7 +109,6 @@ const initialState = {
         },
         {
           id: 3,
-          // orderRef: 2,
           agendaItemId: null,
           fileName: '2_minutes_last_meeting.pdf',
           fileUrl: '2_minutes_last_meeting.pdf',
@@ -120,7 +116,6 @@ const initialState = {
         },
         {
           id: 4,
-          // orderRef: 5.1,
           agendaItemId: null,
           fileName: '5_1_switzerland_austria_italy.pdf',
           fileUrl: '5_1_switzerland_austria_italy.pdf',
@@ -128,10 +123,30 @@ const initialState = {
         },
         {
           id: 5,
-          // orderRef: 5.1,
           agendaItemId: null,
           fileName: 'switzerland_austria_italy.pdf',
           fileUrl: 'switzerland_austria_italy.pdf',
+          isDeleted: false
+        },
+        {
+          id: 6,
+          agendaItemId: null,
+          fileName: '3.pdf',
+          fileUrl: '3.pdf',
+          isDeleted: false
+        },
+        {
+          id: 7,
+          agendaItemId: null,
+          fileName: 'usa.pdf',
+          fileUrl: 'usa.pdf',
+          isDeleted: false
+        },
+        {
+          id: 8,
+          agendaItemId: null,
+          fileName: 'poland.pdf',
+          fileUrl: 'poland.pdf',
           isDeleted: false
         }
       ]
@@ -199,54 +214,33 @@ const addDocumentToAgendaItem = (state, action) => {
    */
   deepFreeze(state)
   const docId = action.payload
-  const agendaDocs = _.cloneDeep(state.agenda.data.agendaDocs)
-  const agendaItems = _.cloneDeep(state.agenda.data.agendaItems)
+  const agendas = _.cloneDeep(state.agenda.data.agendaItems)
+  const docs = _.cloneDeep(state.agenda.data.agendaDocs)
 
-  let activeDoc = agendaDocs.find(item => item.id === docId)
-  const activeDocFileName = removeFileExtension(activeDoc.fileName).toLowerCase()
+  agendas.forEach(agenda => {
+    // exact name match
+    let nameToMatch = agenda.name.trim().toLowerCase()
+    nameToMatch = replaceCharacters(nameToMatch, ' / ', '_')
+    nameToMatch = replaceCharacters(nameToMatch, ' ', '_')
 
-  const agendaItemsMatch = agendaItems.filter(agendaItem => {
-    const nameAgenda = removeFileExtension(agendaItem.name).toLowerCase()
-    return nameAgenda.includes(activeDocFileName)
+    const docsWithMatches = docs.filter(doc => doc.fileName.includes(nameToMatch))
+    const hasNameMatch = docsWithMatches.length > 0
+    if (hasNameMatch) {
+      docsWithMatches.forEach(docWithMatch => {
+        let doc = docs.find(doc => doc.id === docWithMatch.id)
+        doc.agendaItemId = agenda.id
+      })
+    } else {
+      const orderStrMatch = agenda.order.toString().replace('.', '_')
+      const docsWithMatchesOrder = docs.filter((doc) => doc.fileName.startsWith(orderStrMatch))
+      docsWithMatchesOrder.forEach(docWithMatchesOrder => {
+        let doc = docs.find(doc => doc.id === docWithMatchesOrder.id)
+        doc.agendaItemId = agenda.id
+      })
+    }
   })
-  // check for exact name match
-  const hasExactNameMatch = agendaItemsMatch.length > 0
-  if (hasExactNameMatch) {
-    activeDoc.agendaItemId = agendaItemsMatch[0].id
-    return dotProp.set(state, 'agenda.data.agendaDocs', agendaDocs)
-  }
-
-  // get activeDoc
-  // check if file name
-  // if activeDoc filename contain exactly onen activeItem => associate to activeItem
-  // if activeDoc filename contain a number which match activeItem order => associate to activeItem
-
-  // _.cloneDeep(state.agenda.data.agendaDocs)
-  // _.cloneDeep(state.agenda.data.agendaItems)
-  // return dotProp.set(state, 'agenda.data.agendaDocs', docs)
+  return dotProp.set(state, 'agenda.data.agendaDocs', docs)
 }
-
-// const addDocumentToAgendaItem = (state, action) => {
-//   /*
-//    * Add a document to a specific agenda item based on its order reference match.
-//    */
-//   deepFreeze(state)
-//   const docId = action.payload
-//   // find active doc
-//   let docs = _.cloneDeep(state.agenda.data.agendaDocs)
-//   let activeDoc = docs.find(item => {
-//     return item.id === docId
-//   })
-//   // match active doc with correct agenda item
-//   let agendaItems = _.cloneDeep(state.agenda.data.agendaItems)
-//   let matchAgendaItem = agendaItems.find(item => {
-//     return item.order === activeDoc.orderRef
-//   })
-//   // associate an active doc to matched agenda item
-//   activeDoc.agendaItemId = matchAgendaItem.id
-//   console.log(docs)
-//   return dotProp.set(state, 'agenda.data.agendaDocs', docs)
-// }
 
 function reducer (state = initialState, action) {
   switch (action.type) {
