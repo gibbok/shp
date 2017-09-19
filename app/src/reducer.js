@@ -1,4 +1,7 @@
 import dotProp from 'dot-prop-immutable'
+import * as types from './actionsTypes'
+import deepFreeze from 'deep-freeze'
+import _ from 'lodash'
 
 const initialState = {
   agenda: {
@@ -189,13 +192,31 @@ const initialState = {
   }
 }
 
+const addDocumentToAgendaItem = (state, action) => {
+  /*
+   * Add a document to a specific agenda item based on its order reference match.
+   */
+  deepFreeze(state)
+  const docId = action.payload
+  // find active doc
+  let docs = _.cloneDeep(state.agenda.data.agendaDocs)
+  let activeDoc = docs.find(item => {
+    return item.id === docId
+  })
+  // match active doc with correct agenda item
+  let agendaItems = _.cloneDeep(state.agenda.data.agendaItems)
+  let matchAgendaItem = agendaItems.find(item => {
+    return item.order === activeDoc.orderRef
+  })
+  // associate an active doc to matched agenda item
+  activeDoc.agendaItemId = matchAgendaItem.id
+  return dotProp.set(state, 'agenda.data.agendaDocs', docs)
+}
+
 function reducer (state = initialState, action) {
   switch (action.type) {
-    case 'ADD_AGENDA_ITEM':
-      return state
-
-    case 'ADD_AGENDA_ITEM__DOCUMENT':
-      return state
+    case types.ADD_DOCUMENT_TO_AGENDA_ITEM:
+      return addDocumentToAgendaItem(state, action)
 
     default:
       return state
