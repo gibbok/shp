@@ -1,16 +1,21 @@
 
 import React from 'react'
-import AvailabilityDocsContainer from './AvailabilityDocsContainer'
 import AvailabilityCounter from './AvailabilityCounter'
+import AvailabilityDocs from './AvailabilityDocs'
 
-const Availability = ({agendaDocsTotal}) => {
+const Availability = ({agendaDocsTotal, agendaDocs, onClickDocumentItem}) => {
   return (
     <div>
       <div>
-        <AvailabilityCounter agendaDocsTotal={agendaDocsTotal} />
+        <AvailabilityCounter
+          agendaDocsTotal={agendaDocsTotal}
+        />
       </div>
       <div>
-        <AvailabilityDocsContainer />
+        <AvailabilityDocs
+          agendaDocs={agendaDocs}
+          onClickDocumentItem={onClickDocumentItem}
+        />
       </div>
     </div>
   )

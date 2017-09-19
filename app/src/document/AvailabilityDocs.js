@@ -1,12 +1,22 @@
 
 import React from 'react'
+import DocumentItem from './DocumentItem'
 
-const AvailabilityDocs = () => {
+const AvailabilityDocs = ({agendaDocs, onClickDocumentItem}) => {
+  const documentItems = agendaDocs.map(doc => {
+    return (
+      <DocumentItem
+        key={doc.id}
+        id={doc.id}
+        fileName={doc.fileName}
+        fileUrl={doc.fileUrl}
+        onClickDocumentItem={() => onClickDocumentItem(doc)}
+      />
+    )
+  })
   return (
     <div>
-      <div>
-        List of docs
-      </div>
+      {documentItems}
     </div>
   )
 }
