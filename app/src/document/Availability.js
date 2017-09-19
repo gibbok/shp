@@ -1,15 +1,16 @@
 
 import React from 'react'
-import Search from './Search'
+import AvailabilityDocsContainer from './AvailabilityDocsContainer'
+import AvailabilityCounter from './AvailabilityCounter'
 
-const Availability = () => {
+const Availability = ({agendaDocsTotal}) => {
   return (
     <div>
       <div>
-        Available documents (0)
+        <AvailabilityCounter agendaDocsTotal={agendaDocsTotal} />
       </div>
       <div>
-        <Search />
+        <AvailabilityDocsContainer />
       </div>
     </div>
   )

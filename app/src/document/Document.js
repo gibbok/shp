@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from './Header'
 import DropArea from './DropArea'
-import Availability from './Availability'
+import AvailabilityContainer from './AvailabilityContainer'
+import Search from './Search'
 
 const Document = ({isDocumentVisible}) => {
   if (!isDocumentVisible) {
@@ -11,7 +12,8 @@ const Document = ({isDocumentVisible}) => {
     <div>
       <Header />
       <DropArea />
-      <Availability />
+      <AvailabilityContainer />
+      <Search />
     </div>
   )
 }
