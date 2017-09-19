@@ -108,7 +108,10 @@ const initialState = {
           isActive: true,
           url: '/agenda'
         }
-      ]
+      ],
+      document: {
+        isVisible: false
+      }
     }
   }
 }
