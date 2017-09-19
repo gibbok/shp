@@ -2,7 +2,7 @@ import dotProp from 'dot-prop-immutable'
 import * as types from './actionsTypes'
 import deepFreeze from 'deep-freeze'
 import _ from 'lodash'
-import {removeFileExtension, replaceCharacters} from './utility'
+import {removeFileExtension} from './utility'
 
 const initialState = {
   agenda: {
@@ -83,6 +83,13 @@ const initialState = {
           order: 6,
           name: 'Sales Marketing',
           isReviewed: false
+        },
+        {
+          id: 9,
+          agendaId: 0,
+          order: 6,
+          name: 'Sales / / / // Marketing',
+          isReviewed: false
         }
       ],
       agendaDocs: [
@@ -148,6 +155,20 @@ const initialState = {
           fileName: 'poland.pdf',
           fileUrl: 'poland.pdf',
           isDeleted: false
+        },
+        {
+          id: 9,
+          agendaItemId: null,
+          fileName: 'adminupdate.pdf',
+          fileUrl: 'adminupdate.pdf',
+          isDeleted: false
+        },
+        {
+          id: 10,
+          agendaItemId: null,
+          fileName: 'adminupdate.pdf.jpg',
+          fileUrl: 'adminupdate.pdf.jpg',
+          isDeleted: false
         }
       ]
     },
@@ -210,35 +231,49 @@ const initialState = {
 
 const addDocumentToAgendaItem = (state, action) => {
   /*
-   * Add a document to a specific agenda item based on its order reference match.
+   * Add documents to their specific agenda items, searching by name or order.
+   *
+   * How does it work:
+   * If a document.fileUrl is included in agenda.name, associate document to agenda.
+   * Else if document.fileUrl start with agenda.order, associate document to agenda.
+   *
+   * Requirements:
+   * document.fileUrl must be:
+   * - lowercase
+   * - contain only alpha numberic characters
+   * - contain no white spaces using (low dashes used instead)
+   * Example of correct document.fileUrl:
+   * - 5_1_switzerland_austria_italy.pdf
+   * - switzerland_austria_italy.pdf
    */
   deepFreeze(state)
-  const docId = action.payload
   const agendas = _.cloneDeep(state.agenda.data.agendaItems)
   const docs = _.cloneDeep(state.agenda.data.agendaDocs)
 
   agendas.forEach(agenda => {
-    // exact name match
-    let nameToMatch = agenda.name.trim().toLowerCase()
-    nameToMatch = replaceCharacters(nameToMatch, ' / ', '_')
-    nameToMatch = replaceCharacters(nameToMatch, ' ', '_')
-
-    const docsWithMatches = docs.filter(doc => doc.fileName.includes(nameToMatch))
-    const hasNameMatch = docsWithMatches.length > 0
-    if (hasNameMatch) {
-      docsWithMatches.forEach(docWithMatch => {
-        let doc = docs.find(doc => doc.id === docWithMatch.id)
-        doc.agendaItemId = agenda.id
+    // normalize agenda.name for search
+    let nameToMatch = agenda.name
+      .trim().toLowerCase()                   // trim and lowercase
+      .split('.')[0]                          // exclude file extension
+      .replace(/[^A-Z\d\s]/gi, '')            // remove any non alpha numberic characters
+      .replace(/\s+/g, ' ').replace(' ', '_') // replace white spaces with low dashes
+    // search if agenda.name is included in document.fileUrl
+    const docsNameMatches = docs.filter(doc => doc.fileUrl.includes(nameToMatch))
+    const hasExactNameMatch = docsNameMatches.length > 0
+    if (hasExactNameMatch) {
+      docsNameMatches.forEach(docMatch => {
+        docs.find(doc => doc.id === docMatch.id).agendaItemId = agenda.id
       })
     } else {
-      const orderStrMatch = agenda.order.toString().replace('.', '_')
-      const docsWithMatchesOrder = docs.filter((doc) => doc.fileName.startsWith(orderStrMatch))
-      docsWithMatchesOrder.forEach(docWithMatchesOrder => {
-        let doc = docs.find(doc => doc.id === docWithMatchesOrder.id)
-        doc.agendaItemId = agenda.id
+      // search if agenda.order is included at the beginning of document.fileName
+      const orderStrToMatch = agenda.order.toString().replace('.', '_')
+      const docsOrderMatches = docs.filter((doc) => doc.fileUrl.startsWith(orderStrToMatch))
+      docsOrderMatches.forEach(docMatch => {
+        docs.find(doc => doc.id === docMatch.id).agendaItemId = agenda.id
       })
     }
   })
+
   return dotProp.set(state, 'agenda.data.agendaDocs', docs)
 }
 
