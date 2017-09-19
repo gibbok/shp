@@ -83,10 +83,51 @@ const initialState = {
       ],
       agendaDocs: [
         {
-          id: 8,
-          agendaItemId: 0,
+          id: 0,
+          orderRef: 1,
+          agendaItemId: null,
           fileName: 'admin.pdf',
+          fileUrl: 'admin.pdf',
+          isDeleted: false
+        },
+        {
+          id: 1,
+          orderRef: 1,
+          agendaItemId: null,
+          fileName: '1_admin.pdf',
           fileUrl: '1_admin.pdf',
+          isDeleted: false
+        },
+        {
+          id: 2,
+          orderRef: 2,
+          agendaItemId: null,
+          fileName: 'minutes_last_meeting.pdf',
+          fileUrl: 'minutes_last_meeting.pdf',
+          isDeleted: false
+        },
+        {
+          id: 3,
+          orderRef: 2,
+          agendaItemId: null,
+          fileName: '2_minutes_last_meeting.pdf',
+          fileUrl: '2_minutes_last_meeting.pdf',
+          isDeleted: false
+        },
+        {
+          id: 4,
+          orderRef: 5.1,
+          agendaItemId: null,
+          fileName: '5_1_switzerland_austria_italy.pdf',
+          fileUrl: '5_1_switzerland_austria_italy.pdf',
+          isDeleted: false
+        },
+        {
+          id: 5,
+          orderRef: 5.1,
+          agendaItemId: null,
+          fileName: 'switzerland_austria_italy.pdf',
+          fileUrl: 'switzerland_austria_italy.pdf',
           isDeleted: false
         }
       ]
