@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Header from './Header'
-import NavigationContainer from './NavigationContainer'
 
-class Agenda extends Component {
-  render () {
-    return (
-      <div className='agenda'>
-        <Header />
-        <NavigationContainer />
-      </div>
-    )
-  }
+import ContentContainer from './ContentContainer'
+
+const Agenda = () => {
+  return (
+    <div className='agenda'>
+      <Header />
+      <ContentContainer />
+    </div>
+  )
 }
 
 export default Agenda

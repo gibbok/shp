@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Title from './Title'
-import Navigation from './Navigation'
+import NavigationContainer from './NavigationContainer'
 
 class Header extends Component {
   render () {
     return (
       <div className='header'>
         <Title />
-        <Navigation />
+        <NavigationContainer />
       </div>
     )
   }
