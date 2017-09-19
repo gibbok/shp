@@ -1,7 +1,10 @@
 import React from 'react'
 import Header from './Header'
 
-const Document = () => {
+const Document = ({isDocumentVisible}) => {
+  if (!isDocumentVisible) {
+    return null
+  }
   return (
     <div>
       <Header />
