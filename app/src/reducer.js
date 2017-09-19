@@ -20,54 +20,63 @@ const initialState = {
         {
           id: 0,
           agendaId: 0,
+          order: 1,
           name: 'Admin',
           isReviewed: false
         },
         {
           id: 1,
           agendaId: 0,
+          order: 2,
           name: 'Minutes Last Meeting',
           isReviewed: false
         },
         {
           id: 2,
           agendaId: 0,
+          order: 3,
           name: 'Perfomance / Key Initiatives',
           isReviewed: false
         },
         {
           id: 3,
           agendaId: 0,
+          order: 4,
           name: 'Management Update',
           isReviewed: false
         },
         {
           id: 4,
           agendaId: 0,
+          order: 5,
           name: 'Country Managers Outlook',
           isReviewed: false
         },
         {
           id: 5,
           agendaId: 0,
+          order: 5.1,
           name: 'Switzerland / Austria / Italy',
           isReviewed: true
         },
         {
           id: 6,
           agendaId: 0,
+          order: 5.2,
           name: 'Germany',
           isReviewed: true
         },
         {
           id: 7,
           agendaId: 0,
+          order: 5.3,
           name: 'France',
           isReviewed: true
         },
         {
           id: 8,
           agendaId: 0,
+          order: 6,
           name: 'Sales Marketing',
           isReviewed: false
         }
@@ -86,7 +95,20 @@ const initialState = {
       isFetching: false
     },
     ui: {
-      inputValue: ''
+      agenda: {
+        navigation: [
+          {
+            id: 0,
+            name: 'Details',
+            isActive: false
+          },
+          {
+            id: 1,
+            name: 'Agenda',
+            isActive: true
+          }
+        ]
+      }
     }
   }
 }
