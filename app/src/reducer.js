@@ -2,6 +2,7 @@ import dotProp from 'dot-prop-immutable'
 import * as types from './actionsTypes'
 import deepFreeze from 'deep-freeze'
 import _ from 'lodash'
+import {removeFileExtension} from './utility'
 
 const initialState = {
   agenda: {
@@ -87,7 +88,7 @@ const initialState = {
       agendaDocs: [
         {
           id: 0,
-          orderRef: 1,
+          // orderRef: 1,
           agendaItemId: null,
           fileName: 'admin.pdf',
           fileUrl: 'admin.pdf',
@@ -95,7 +96,7 @@ const initialState = {
         },
         {
           id: 1,
-          orderRef: 1,
+          // orderRef: 1,
           agendaItemId: null,
           fileName: '1_admin.pdf',
           fileUrl: '1_admin.pdf',
@@ -103,7 +104,7 @@ const initialState = {
         },
         {
           id: 2,
-          orderRef: 2,
+          // orderRef: 2,
           agendaItemId: null,
           fileName: 'minutes_last_meeting.pdf',
           fileUrl: 'minutes_last_meeting.pdf',
@@ -111,7 +112,7 @@ const initialState = {
         },
         {
           id: 3,
-          orderRef: 2,
+          // orderRef: 2,
           agendaItemId: null,
           fileName: '2_minutes_last_meeting.pdf',
           fileUrl: '2_minutes_last_meeting.pdf',
@@ -119,7 +120,7 @@ const initialState = {
         },
         {
           id: 4,
-          orderRef: 5.1,
+          // orderRef: 5.1,
           agendaItemId: null,
           fileName: '5_1_switzerland_austria_italy.pdf',
           fileUrl: '5_1_switzerland_austria_italy.pdf',
@@ -127,7 +128,7 @@ const initialState = {
         },
         {
           id: 5,
-          orderRef: 5.1,
+          // orderRef: 5.1,
           agendaItemId: null,
           fileName: 'switzerland_austria_italy.pdf',
           fileUrl: 'switzerland_austria_italy.pdf',
@@ -198,20 +199,54 @@ const addDocumentToAgendaItem = (state, action) => {
    */
   deepFreeze(state)
   const docId = action.payload
-  // find active doc
-  let docs = _.cloneDeep(state.agenda.data.agendaDocs)
-  let activeDoc = docs.find(item => {
-    return item.id === docId
+  const agendaDocs = _.cloneDeep(state.agenda.data.agendaDocs)
+  const agendaItems = _.cloneDeep(state.agenda.data.agendaItems)
+
+  let activeDoc = agendaDocs.find(item => item.id === docId)
+  const activeDocFileName = removeFileExtension(activeDoc.fileName).toLowerCase()
+
+  const agendaItemsMatch = agendaItems.filter(agendaItem => {
+    const nameAgenda = removeFileExtension(agendaItem.name).toLowerCase()
+    return nameAgenda.includes(activeDocFileName)
   })
-  // match active doc with correct agenda item
-  let agendaItems = _.cloneDeep(state.agenda.data.agendaItems)
-  let matchAgendaItem = agendaItems.find(item => {
-    return item.order === activeDoc.orderRef
-  })
-  // associate an active doc to matched agenda item
-  activeDoc.agendaItemId = matchAgendaItem.id
-  return dotProp.set(state, 'agenda.data.agendaDocs', docs)
+  // check for exact name match
+  const hasExactNameMatch = agendaItemsMatch.length > 0
+  if (hasExactNameMatch) {
+    activeDoc.agendaItemId = agendaItemsMatch[0].id
+    return dotProp.set(state, 'agenda.data.agendaDocs', agendaDocs)
+  }
+
+  // get activeDoc
+  // check if file name
+  // if activeDoc filename contain exactly onen activeItem => associate to activeItem
+  // if activeDoc filename contain a number which match activeItem order => associate to activeItem
+
+  // _.cloneDeep(state.agenda.data.agendaDocs)
+  // _.cloneDeep(state.agenda.data.agendaItems)
+  // return dotProp.set(state, 'agenda.data.agendaDocs', docs)
 }
+
+// const addDocumentToAgendaItem = (state, action) => {
+//   /*
+//    * Add a document to a specific agenda item based on its order reference match.
+//    */
+//   deepFreeze(state)
+//   const docId = action.payload
+//   // find active doc
+//   let docs = _.cloneDeep(state.agenda.data.agendaDocs)
+//   let activeDoc = docs.find(item => {
+//     return item.id === docId
+//   })
+//   // match active doc with correct agenda item
+//   let agendaItems = _.cloneDeep(state.agenda.data.agendaItems)
+//   let matchAgendaItem = agendaItems.find(item => {
+//     return item.order === activeDoc.orderRef
+//   })
+//   // associate an active doc to matched agenda item
+//   activeDoc.agendaItemId = matchAgendaItem.id
+//   console.log(docs)
+//   return dotProp.set(state, 'agenda.data.agendaDocs', docs)
+// }
 
 function reducer (state = initialState, action) {
   switch (action.type) {
