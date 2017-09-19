@@ -95,20 +95,20 @@ const initialState = {
       isFetching: false
     },
     ui: {
-      agenda: {
-        navigation: [
-          {
-            id: 0,
-            name: 'Details',
-            isActive: false
-          },
-          {
-            id: 1,
-            name: 'Agenda',
-            isActive: true
-          }
-        ]
-      }
+      navigation: [
+        {
+          id: 0,
+          name: 'Details',
+          isActive: false,
+          url: '/details'
+        },
+        {
+          id: 1,
+          name: 'Agenda',
+          isActive: true,
+          url: '/agenda'
+        }
+      ]
     }
   }
 }
