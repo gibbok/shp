@@ -1,5 +1,6 @@
  import React from 'react'
  import NavigationItem from './NavigationItem'
+ import './Navigation.css'
 
  const Navigation = ({agendaNavigation}) => {
    const navigationItems = agendaNavigation.map(item => {
@@ -14,7 +15,7 @@
      )
    })
    return (
-     <div>
+     <div className='navigation'>
        {navigationItems}
      </div>
    )

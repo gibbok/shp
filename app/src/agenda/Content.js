@@ -9,7 +9,7 @@ const Content = ({agendaItems}) => {
         id={item.id}
         order={item.order}
         name={item.name}
-        isReviewed={item.isReviewed}
+        hasDocs={item.hasDocs}
         />
     )
   })

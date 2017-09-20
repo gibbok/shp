@@ -1,10 +1,12 @@
 import React from 'react'
+import './NavigationItem.css'
 
 const NavigationItem = ({id, name, isActive, tooltip}) => {
-  const classActive = isActive ? 'navigationItem__name--active' : 'navigationItem__name'
+  const navigationItem = isActive ? 'navigationItem--active' : 'navigationItem'
+  const navigationValue = isActive ? 'navigationItem__name--active' : 'navigationItem__name'
   return (
-    <div className='navigationItem'>
-      <div className={classActive}>
+    <div className={navigationItem}>
+      <div className={navigationValue}>
         {name}
       </div>
     </div>

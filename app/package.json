@@ -12,7 +12,8 @@
     "standard": "^10.0.3",
     "react-redux":"^5.0.6",
     "deep-freeze":"^0.0.1",
-    "lodash":"^4.17.4"
+    "lodash":"^4.17.4",
+    "normalize.css":"^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

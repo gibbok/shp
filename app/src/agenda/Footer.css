@@ -1,0 +1,12 @@
+.footer{
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer_publish{
+    width:140px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+}

@@ -1,0 +1,25 @@
+.navigationItem,
+.navigationItem--active {
+    width:175px;
+    height: inherit;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.navigationItem--active{
+    border-bottom: 1px solid blue;
+    box-shadow: 0px 1px 0px 0px #268EFF;
+    /* box-shadow: 0px 1px 0px 0px rgba(38,143,255,1); */
+}
+.navigationItem__name,
+.navigationItem__name--active {
+    font-size: 20px;
+
+}
+.navigationItem__name{
+    color:#AAAAAA;
+}
+.navigationItem__name--active {
+    color:#444444;
+}

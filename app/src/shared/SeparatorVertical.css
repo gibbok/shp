@@ -1,0 +1,13 @@
+.separatorVertical{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+}
+.separatorVertical__line{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 1px;
+    height: 100%;
+    background-color: #EEEEEE;
+}

@@ -1,8 +1,9 @@
 import React from 'react'
+import './Publish.css'
 
 const Publish = () => {
   return (
-    <div>Publish</div>
+    <div className='publish'>Publish</div>
   )
 }
 

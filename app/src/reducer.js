@@ -26,70 +26,63 @@ const initialState = {
           agendaId: 0,
           order: 1,
           name: 'Admin',
-          isReviewed: false
+          hasDocs: false
         },
         {
           id: 1,
           agendaId: 0,
           order: 2,
           name: 'Minutes Last Meeting',
-          isReviewed: false
+          hasDocs: false
         },
         {
           id: 2,
           agendaId: 0,
           order: 3,
           name: 'Perfomance / Key Initiatives',
-          isReviewed: false
+          hasDocs: false
         },
         {
           id: 3,
           agendaId: 0,
           order: 4,
           name: 'Management Update',
-          isReviewed: false
+          hasDocs: false
         },
         {
           id: 4,
           agendaId: 0,
           order: 5,
           name: 'Country Managers Outlook',
-          isReviewed: false
+          hasDocs: false
         },
         {
           id: 5,
           agendaId: 0,
           order: 5.1,
           name: 'Switzerland / Austria / Italy',
-          isReviewed: true
+          hasDocs: true
         },
         {
           id: 6,
           agendaId: 0,
           order: 5.2,
           name: 'Germany',
-          isReviewed: true
+          hasDocs: true
         },
         {
           id: 7,
           agendaId: 0,
           order: 5.3,
           name: 'France',
-          isReviewed: true
+          hasDocs: true
         },
         {
           id: 8,
           agendaId: 0,
           order: 6,
           name: 'Sales Marketing',
-          isReviewed: false
-        },
-        {
-          id: 9,
-          agendaId: 0,
-          order: 6,
-          name: 'Sales / / / // Marketing',
-          isReviewed: false
+          hasDocs: false
         }
       ],
       agendaDocs: [
@@ -191,38 +184,57 @@ const initialState = {
         }
       ],
       document: {
-        isVisible: true
+        isVisible: false
       },
       agendaOptions: [
         {
-          id: 0,
+          id: 'separator0',
+          type: 'separator',
+          name: 'Separator',
+          isActive: false,
+          src: 'separator'
+        },
+        {
+          id: 'iconDownload',
+          type: 'icon',
           name: 'Download',
           isActive: false,
-          src: ''
+          src: 'iconDownload'
         },
         {
-          id: 1,
-          name: 'Progress',
+          id: 'iconReload',
+          type: 'icon',
+          name: 'Reload',
           isActive: false,
-          src: ''
+          src: 'iconReload'
         },
         {
-          id: 2,
+          id: 'separator1',
+          type: 'separator',
+          name: 'Separator',
+          isActive: false,
+          src: 'separator'
+        },
+        {
+          id: 'iconSend',
+          type: 'icon',
           name: 'Send by Email',
           isActive: true,
-          src: ''
+          src: 'iconSend'
         },
         {
-          id: 3,
+          id: 'iconAddAgendaItem',
+          type: 'icon',
           name: 'Add Item to Agenda',
           isActive: true,
-          src: ''
+          src: 'iconAddAgendaItem'
         },
         {
-          id: 4,
+          id: 'iconAddDoc',
+          type: 'icon',
           name: 'Add document to Item Agenda',
           isActive: true,
-          src: ''
+          src: 'iconAddDoc'
         }
       ]
     }

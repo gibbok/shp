@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'HelveticaNeueLTPro-Roman', sans-serif;
+}
+
+.app {
+    width: 1600px;
+    height: 984px;
+    border-top: 1px solid #DDDDDD; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* h1{
+    font-family: 'HelveticaNeueLTPro-Bd', sans-serif;
+    font-family: 'HelveticaNeueLTPro-Md', sans-serif;
+    font-family: 'HelveticaNeueLTPro-Roman', sans-serif;
+} */
