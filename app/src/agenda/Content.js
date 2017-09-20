@@ -1,5 +1,6 @@
 import React from 'react'
 import AgendaItem from './AgendaItem'
+import './Content.css'
 
 const Content = ({agendaItems}) => {
   const items = agendaItems.map(item => {

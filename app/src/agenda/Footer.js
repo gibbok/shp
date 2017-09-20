@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='footer_publish'>
         <Button label={'Publish'} width={120} height={35} onClickButton={() => {}} />
       </div>
-      <div>
+      <div className='footer_options'>
         <AgendaOptionsContainer />
       </div>
     </div>

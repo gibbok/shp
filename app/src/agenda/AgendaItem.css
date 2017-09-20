@@ -5,8 +5,8 @@
     display: flex;
     width:100%;
 }
-.agenda__content__item:nth-child(odd) {
-    background-color: #F8F8F8;
+.agenda__content__item:nth-child(even) {
+    background-color: #FFFFFF;
 }
 .agenda__content__item__order,
 .agenda__content__item__order--active {
