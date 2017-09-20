@@ -19,5 +19,6 @@
 }
 .document__footer__menu{
     flex-grow: 1;
+    padding-top: 3px;
 }
 
