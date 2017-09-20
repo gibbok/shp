@@ -60,21 +60,21 @@ const initialState = {
           agendaId: 0,
           order: 5.1,
           name: 'Switzerland / Austria / Italy',
-          hasDocs: true
+          hasDocs: false
         },
         {
           id: 6,
           agendaId: 0,
           order: 5.2,
           name: 'Germany',
-          hasDocs: true
+          hasDocs: false
         },
         {
           id: 7,
           agendaId: 0,
           order: 5.3,
           name: 'France',
-          hasDocs: true
+          hasDocs: false
         },
         {
           id: 8,
@@ -288,10 +288,22 @@ const addDocumentsToAgendaItems = (state, action) => {
   return dotProp.set(state, 'agenda.data.agendaDocs', docs)
 }
 
+const setAgendaItemsHasDocs = (state) => {
+  deepFreeze(state)
+  const agendas = _.cloneDeep(state.agenda.data.agendaItems)
+  const docs = _.cloneDeep(state.agenda.data.agendaDocs)
+  agendas.forEach(agendaItem => {
+    agendaItem.hasDocs = docs.some(doc => doc.agendaItemId === agendaItem.id)
+  })
+  return dotProp.set(state, 'agenda.data.agendaItems', agendas)
+}
+
 function reducer (state = initialState, action) {
   switch (action.type) {
     case types.ADD_DOCUMENTS_TO_AGENDA_ITEMS:
-      return addDocumentsToAgendaItems(state, action)
+      const state1 = addDocumentsToAgendaItems(state)
+      const state2 = setAgendaItemsHasDocs(state1)
+      return state2
 
     default:
       return state
