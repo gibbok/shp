@@ -1,8 +1,9 @@
 import React from 'react'
+import './AvailabilityCounter.css'
 
 const AvailabilityCounter = ({agendaDocsTotal}) => {
   return (
-    <div>Available documents ({agendaDocsTotal})</div>
+    <div className='availabilityCounter'>Available documents ({agendaDocsTotal})</div>
   )
 }
 

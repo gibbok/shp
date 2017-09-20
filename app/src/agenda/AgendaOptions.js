@@ -20,6 +20,8 @@ const AgendaOptions = ({agendaOptions}) => {
         <SeparatorVertical
           id={item.id}
           key={item.id}
+          width={45}
+          height={45}
         />
       )
     }

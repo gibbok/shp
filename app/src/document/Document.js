@@ -4,6 +4,7 @@ import DropArea from './DropArea'
 import AvailabilityCounterContainer from './AvailabilityCounterContainer'
 import AvailabilityDocsContainer from './AvailabilityDocsContainer'
 import Search from './Search'
+import Footer from './Footer'
 import './Document.css'
 
 const Document = ({isDocumentVisible}) => {
@@ -17,6 +18,7 @@ const Document = ({isDocumentVisible}) => {
       <AvailabilityCounterContainer />
       <Search />
       <AvailabilityDocsContainer />
+      <Footer />
     </div>
   )
 }

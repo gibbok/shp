@@ -1,9 +1,10 @@
 import React from 'react'
+import './DocumentItem.css'
 
 const DocumentItem = ({id, fileName, fileUrl, onClickDocumentItem}) => {
   return (
-    <div onClick={onClickDocumentItem} style={{backgroundColor: 'gray', height: '50px', margin: '10px'}}>
-      <div>{fileName}</div>
+    <div className='document_content__item' onClick={onClickDocumentItem}>
+      {fileName}
     </div>
   )
 }

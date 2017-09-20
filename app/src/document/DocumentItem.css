@@ -1,0 +1,10 @@
+.document_content__item {
+    height: 65px;
+    border-bottom:1px solid #EEEEEE;
+    display: flex;
+    background-color: #FFFFFF;
+    padding-left: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+}

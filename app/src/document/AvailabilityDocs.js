@@ -1,6 +1,7 @@
 
 import React from 'react'
 import DocumentItem from './DocumentItem'
+import './AvailabilityDocs.css'
 
 const AvailabilityDocs = ({agendaDocs, onClickDocumentItem}) => {
   const agendaDocsNotAssociated = agendaDocs.filter(item => {
@@ -20,7 +21,7 @@ const AvailabilityDocs = ({agendaDocs, onClickDocumentItem}) => {
     )
   })
   return (
-    <div>
+    <div className='availabilityDocs'>
       {documentItems}
     </div>
   )
