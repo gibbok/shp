@@ -11,12 +11,6 @@ const Availability = ({agendaDocsTotal, agendaDocs, onClickDocumentItem}) => {
           agendaDocsTotal={agendaDocsTotal}
         />
       </div>
-      <div>
-        <AvailabilityDocs
-          agendaDocs={agendaDocs}
-          onClickDocumentItem={onClickDocumentItem}
-        />
-      </div>
     </div>
   )
 }
