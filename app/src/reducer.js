@@ -385,7 +385,7 @@ const addItemToAgenda = (state, action) => {
     id: createGuid(),
     agendaId: 'bs5eah84dvoj7thkw9k',
     order: getHighestOrder(agendas) + 1,
-    name: undefined,
+    name,
     hasDocs: false,
     isReadOnly: false
   }
@@ -405,6 +405,7 @@ const addItemToAgenda = (state, action) => {
  * @param {object} action
  */
 function reducer (state = initialState, action) {
+  console.log(action.type)
   switch (action.type) {
     case types.ADD_DOCUMENTS_TO_AGENDA_ITEMS:
       const state1 = addDocumentsToAgendaItems(state)
