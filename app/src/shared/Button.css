@@ -1,6 +1,4 @@
-.publish{
-    width:120px;
-    height: 35px;
+.button{
     background-color: #268EFF;
     color:#FFFFFF;
     border-radius: 5px;
@@ -10,6 +8,6 @@
     justify-content: center;
 }
 
-.publish:hover{
+.button:hover{
     filter: brightness(1.1)
 }
