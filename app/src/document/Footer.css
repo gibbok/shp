@@ -1,4 +1,41 @@
 .document__footer{
-    height: 60px;
-    background-color: yellow;
+    height: 70px;
+    background-color:#F8F8F8;
+    border-top: 1px solid #DDDDDD; 
+    display:flex;
+    align-items: center;
+}
+.document__footer__agenda {
+    font-size: 16px;
+    width:115px;
+    font-weight: 800;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top:-12px; */
+    margin-left:5px;
+}
+.document__footer__add {
+    width:115px;
+}
+.document__footer__menu{
+    flex-grow: 1;
+}
+
+.document__footer__add__button{
+    width:93px;
+    height: 35px;
+    background-color: #268EFF;
+    color:#FFFFFF;
+    border-radius: 5px;
+    font-weight: 800;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left:5px;
+}
+
+.document__footer__add__button:hover{
+    filter: brightness(1.1)
 }
