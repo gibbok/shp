@@ -6,9 +6,11 @@
     width:100%;
     align-items: center;
 }
+
 .agenda__content__item__input:nth-child(even) {
     background-color: #FFFFFF;
 }
+
 .agenda__content__item__input__order,
 .agenda__content__item__input__order--active {
     width: 110px;
@@ -18,8 +20,8 @@
     padding-top:5px;
     color:#444444;
 }
-.agenda__content__item__input__name,
-.agenda__content__item__input__name--active {
+
+.agenda__content__item__input__name {
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -27,26 +29,21 @@
     padding-left:5px;
     color:#444444;
 }
-.agenda__content__item__input__name--active,
-.agenda__content__item__input__order--active {
-    font-weight: 800;
-}
 
-.agenda__content__item__input--active{
-    animation-name: agenda__content__item__input__animation;
-    animation-duration: 0.25s;
-    animation-direction: alternate;
-    animation-iteration-count: 2;
-}
-
-@keyframes agenda__content__item__input__animation {
-    to {
-        background-color:#E5F2FF;
-    }
-} 
-
-
-.agenda__content__item__input__name {
+input.agenda__content__item__input__name {
     border: 0 !important;
     height: 40px;
+    background: rgba(0%, 0%, 0%, 0)
+}
+
+input.agenda__content__item__input__name::placeholder{
+    color:#C1C1C1;
+}
+
+.agenda__content__item__input__order__value{
+    width:30px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

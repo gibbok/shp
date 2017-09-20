@@ -1,6 +1,5 @@
 * {
-    box-sizing: border-box;
-    
+    box-sizing: border-box;  
 }
 
 body {
@@ -18,10 +17,3 @@ body {
     border-bottom: 1px solid #DDDDDD; 
     border-left: 1px solid #DDDDDD;
 }
-
-
-/* h1{
-    font-family: 'HelveticaNeueLTPro-Bd', sans-serif;
-    font-family: 'HelveticaNeueLTPro-Md', sans-serif;
-    font-family: 'HelveticaNeueLTPro-Roman', sans-serif;
-} */

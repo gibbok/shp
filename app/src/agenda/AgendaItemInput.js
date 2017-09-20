@@ -4,8 +4,13 @@ import './AgendaItemInput.css'
 const AgendaItemInput = ({id, order, name, onKeyPressItem}) => {
   return (
     <div className='agenda__content__item__input'>
-      <div className='agenda__content__item__input__order'>{order}</div>
+      <div className='agenda__content__item__input__order'>
+        <div className='agenda__content__item__input__order__value'>
+          {order}
+        </div>
+      </div>
       <input
+        maxLength={128}
         type='text'
         className='agenda__content__item__input__name'
         name='name'

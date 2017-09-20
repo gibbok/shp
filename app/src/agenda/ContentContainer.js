@@ -15,8 +15,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onKeyPressItem: (event) => {
       if (event.key === 'Enter') {
-        console.log('Enter')
-        dispatch(addItemToAgenda(event.target.value))
+        const value = event.target.value
+        if (value) {
+          dispatch(addItemToAgenda(event.target.value))
+        }
       }
     }
 

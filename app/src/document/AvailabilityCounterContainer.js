@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 const getAgendaDocsTotal = state => {
   /*
-   * Count how many documents are not associatd with agenda items.
+   * Count how many documents are allocated to agenda items.
    */
   deepFreeze(state)
   const unMatchedDocs =

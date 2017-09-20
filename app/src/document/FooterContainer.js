@@ -4,7 +4,6 @@ import {addDocumentsToAgendaItems} from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-
   }
 }
 

@@ -8,7 +8,11 @@ const AgendaItem = ({id, order, name, hasDocs}) => {
   const classItem = createActiveCssClass('agenda__content__item', hasDocs)
   return (
     <div className={classItem}>
-      <div className={classOrder}>{order}</div>
+      <div className={classOrder}>
+        <div className='agenda__content__item__order__value'>
+          {order}
+        </div>
+      </div>
       <div className={className}>{name}</div>
     </div>
   )
