@@ -6,25 +6,18 @@ import iconAddDoc from './icon-add-doc.png'
 import iconAddAgendaItem from './icon-add-agenda-item.png'
 import './AgendaOption.css'
 
-const loadIcon = (src) => {
-  switch (src) {
-    case 'iconSend':
-      return iconSend
-    case 'iconReload':
-      return iconReload
-    case 'iconDownload':
-      return iconDownload
-    case 'iconAddDoc':
-      return iconAddDoc
-    case 'iconAddAgendaItem':
-      return iconAddAgendaItem
-  }
+let hashIcons = {
+  iconSend,
+  iconReload,
+  iconDownload,
+  iconAddDoc,
+  iconAddAgendaItem
 }
 
 const AgendaOption = ({id, name, isActive, src}) => {
   return (
     <div id={id} className='agendaOption'>
-      <img src={loadIcon(src)} alt={name} />
+      <img src={hashIcons[src]} alt={name} />
     </div>
   )
 }
