@@ -27,7 +27,7 @@ const AgendaOptions = ({agendaOptions}) => {
     }
   })
   return (
-    <div className='agendaOptions'>
+    <div className='agenda__footer__options'>
       {agendaOptionsComponents}
     </div>
   )

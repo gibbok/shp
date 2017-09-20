@@ -16,7 +16,7 @@ let hashIcons = {
 
 const AgendaOption = ({id, name, isActive, src}) => {
   return (
-    <div id={id} className='agendaOption'>
+    <div id={id} className='agenda__footer_option'>
       <img src={hashIcons[src]} alt={name} />
     </div>
   )
