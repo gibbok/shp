@@ -1,6 +1,6 @@
 # Magic Agenda Item (working prototype)
 
-Online version visible here [XXXX][XXXX].
+ [Click here](https://gibbok.github.io/shp/) to visit the online version.
 
 ## Technology stack:
 - JavaScript ES6 written in [Standard Style](https://standardjs.com/).
