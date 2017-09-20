@@ -18,6 +18,8 @@ Allocation is executed by searching for the document name in the agenda item tit
 
 4. A user sees an animation (wow-effect) when documents are allocated. Agenda items with documents associated are highlighted in bold.
 
+5. A user can see the total number of not allocated documents in the info text "Available documents (N)".
+
 ## Additional notes:
 - Tested on the latest Chrome and Firefox browsers.
 - Main logic visible in `reducer.js`.
