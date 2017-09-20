@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import select from './select.png'
+import select from './assets/select.png'
 import Button from '../shared/Button'
 
 const Footer = ({onClickButton}) => {
