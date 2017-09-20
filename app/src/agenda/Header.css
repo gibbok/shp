@@ -1,4 +1,4 @@
-.header{
+.agenda__header{
     height: 120px;
     display:flex;
     flex-direction:column;
@@ -7,6 +7,4 @@
     border-right:1px solid #EEEEEE;
     border-bottom:1px solid #EEEEEE;
     border-left:1px solid #EEEEEE;
-
-
 }

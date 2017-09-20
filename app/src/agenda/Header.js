@@ -6,7 +6,7 @@ import './Header.css'
 class Header extends Component {
   render () {
     return (
-      <div className='header'>
+      <div className='agenda__header'>
         <Title />
         <NavigationContainer />
       </div>

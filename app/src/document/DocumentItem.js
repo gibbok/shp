@@ -3,7 +3,7 @@ import './DocumentItem.css'
 
 const DocumentItem = ({id, fileName, fileUrl, onClickDocumentItem}) => {
   return (
-    <div className='document_content__item' onClick={onClickDocumentItem}>
+    <div className='document__content__item' onClick={onClickDocumentItem}>
       {fileName}
     </div>
   )

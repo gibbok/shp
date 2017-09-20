@@ -1,11 +1,11 @@
-.search{
+.document__search{
     display:flex;
     align-items: center;
     height: 53px;
     border-bottom: 1px solid #DDDDDD; 
 }
 
-.search__find{
+.document__search__find{
     display:flex;
     align-items: center;
     width:250px;
@@ -16,11 +16,11 @@
 
 }
 
-.search__find__text{
+.document__search__find__text{
     padding-left: 5px;
 }
 
-.search__select{
+.document__search__select{
     display:flex;
     justify-content: center;
     align-items: center;
@@ -28,12 +28,12 @@
     color:#AAAAAA;
 }
 
-.search__select__text{
+.document__search__select__text{
     color:#268EFF;
     font-size: 13px;
     width: 65px;
 }
 
-.search__select__bin{
+.document__search__select__bin{
     color:#AAAAAA;
 }

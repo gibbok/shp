@@ -5,11 +5,11 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <div className='footer'>
-      <div className='footer_publish'>
+    <div className='agenda__footer'>
+      <div className='agenda__footer__publish'>
         <Button label={'Publish'} width={120} height={35} onClickButton={() => {}} />
       </div>
-      <div className='footer_options'>
+      <div className='agenda__footer__options'>
         <AgendaOptionsContainer />
       </div>
     </div>

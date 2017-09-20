@@ -5,16 +5,16 @@ import './Search.css'
 
 const Search = () => {
   return (
-    <div className='search'>
-      <div className='search__find'>
+    <div className='document__search'>
+      <div className='document__search__find'>
         <div>
           <i className='material-icons'>search</i>
         </div>
-        <div className='search__find__text'>
+        <div className='document__search__find__text'>
         Search document ......
        </div>
       </div>
-      <div className='search__select'>
+      <div className='document__search__select'>
         <SeparatorVertical
           id={0}
           key={0}
@@ -22,9 +22,9 @@ const Search = () => {
           height={26}
         />
         <div>
-          <div className='search__select__text'>Select all</div>
+          <div className='document__search__select__text'>Select all</div>
         </div>
-        <div className='search__select__bin'>
+        <div className='document__search__select__bin'>
           <BinIcon />
         </div>
       </div>

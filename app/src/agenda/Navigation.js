@@ -15,7 +15,7 @@
      )
    })
    return (
-     <div className='navigation'>
+     <div className='agenda__navigation'>
        {navigationItems}
      </div>
    )

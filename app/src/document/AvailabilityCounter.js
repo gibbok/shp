@@ -3,7 +3,7 @@ import './AvailabilityCounter.css'
 
 const AvailabilityCounter = ({agendaDocsTotal}) => {
   return (
-    <div className='availabilityCounter'>Available documents ({agendaDocsTotal})</div>
+    <div className='document__availability__counter'>Available documents ({agendaDocsTotal})</div>
   )
 }
 

@@ -21,7 +21,7 @@ const AvailabilityDocs = ({agendaDocs, onClickDocumentItem}) => {
     )
   })
   return (
-    <div className='availabilityDocs'>
+    <div className='document__availability__docs'>
       {documentItems}
     </div>
   )
