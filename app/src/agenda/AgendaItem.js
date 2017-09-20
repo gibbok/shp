@@ -5,8 +5,9 @@ import './AgendaItem.css'
 const AgendaItem = ({id, order, name, hasDocs}) => {
   const classOrder = createActiveCssClass('agenda__content__item__order', hasDocs)
   const className = createActiveCssClass('agenda__content__item__name', hasDocs)
+  const classItem = createActiveCssClass('agenda__content__item', hasDocs)
   return (
-    <div className='agenda__content__item'>
+    <div className={classItem}>
       <div className={classOrder}>{order}</div>
       <div className={className}>{name}</div>
     </div>

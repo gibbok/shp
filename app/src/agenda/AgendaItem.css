@@ -1,7 +1,9 @@
-.agenda__content__item {
+.agenda__content__item,
+.agenda__content__item--active {
     height: 65px;
     border-bottom:1px solid #EEEEEE;
     display: flex;
+    width:100%;
 }
 .agenda__content__item:nth-child(odd) {
     background-color: #F8F8F8;
@@ -27,4 +29,17 @@
 .agenda__content__item__name--active,
 .agenda__content__item__order--active {
     font-weight: 800;
+}
+
+.agenda__content__item--active{
+    animation-name: agenda__content__item__animation;
+    animation-duration: 0.25s;
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+}
+
+@keyframes agenda__content__item__animation {
+    to {
+        background-color:#E5F2FF;
+    }
 }
