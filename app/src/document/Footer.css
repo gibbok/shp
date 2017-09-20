@@ -12,7 +12,6 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    /* margin-top:-12px; */
     margin-left:5px;
 }
 .document__footer__add {
@@ -22,6 +21,3 @@
     flex-grow: 1;
 }
 
-.document__footer__add__button:hover{
-    filter: brightness(1.1)
-}

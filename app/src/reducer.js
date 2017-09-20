@@ -2,7 +2,6 @@ import dotProp from 'dot-prop-immutable'
 import * as types from './actionsTypes'
 import deepFreeze from 'deep-freeze'
 import _ from 'lodash'
-import {removeFileExtension} from './utility'
 
 const initialState = {
   agenda: {
@@ -241,7 +240,7 @@ const initialState = {
   }
 }
 
-const addDocumentToAgendaItem = (state, action) => {
+const addDocumentsToAgendaItems = (state, action) => {
   /*
    * Add documents to their specific agenda items, searching by name or order.
    *
@@ -291,8 +290,8 @@ const addDocumentToAgendaItem = (state, action) => {
 
 function reducer (state = initialState, action) {
   switch (action.type) {
-    case types.ADD_DOCUMENT_TO_AGENDA_ITEM:
-      return addDocumentToAgendaItem(state, action)
+    case types.ADD_DOCUMENTS_TO_AGENDA_ITEMS:
+      return addDocumentsToAgendaItems(state, action)
 
     default:
       return state

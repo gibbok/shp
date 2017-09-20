@@ -1,7 +1,7 @@
 
 import * as types from './actionsTypes'
 
-export const addDocumentToAgendaItem = docId => ({
-  type: types.ADD_DOCUMENT_TO_AGENDA_ITEM,
-  payload: docId
+export const addDocumentsToAgendaItems = () => ({
+  type: types.ADD_DOCUMENTS_TO_AGENDA_ITEMS,
+  payload: undefined
 })

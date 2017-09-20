@@ -7,7 +7,7 @@ const Button = ({label, width, height, onClickButton}) => {
     height: `${height}px`
   }
     return (
-    <div className='button' style={style} onClick={onClickButton}>{label}</div>
+    <div className='button' style={style} onClick={()=>onClickButton()}>{label}</div>
     )
   }
   
