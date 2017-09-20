@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import DropArea from './DropArea'
-import AvailabilityContainer from './AvailabilityContainer'
+import AvailabilityCounterContainer from './AvailabilityCounterContainer'
 import AvailabilityDocsContainer from './AvailabilityDocsContainer'
 import Search from './Search'
 import './Document.css'
@@ -14,7 +14,7 @@ const Document = ({isDocumentVisible}) => {
     <div className='document'>
       <Header />
       <DropArea />
-      <AvailabilityContainer />
+      <AvailabilityCounterContainer />
       <Search />
       <AvailabilityDocsContainer />
     </div>
