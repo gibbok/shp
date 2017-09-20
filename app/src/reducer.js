@@ -25,63 +25,80 @@ const initialState = {
           agendaId: 0,
           order: 1,
           name: 'Admin',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 1,
           agendaId: 0,
           order: 2,
           name: 'Minutes Last Meeting',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 2,
           agendaId: 0,
           order: 3,
           name: 'Perfomance / Key Initiatives',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 3,
           agendaId: 0,
           order: 4,
           name: 'Management Update',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 4,
           agendaId: 0,
           order: 5,
           name: 'Country Managers Outlook',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 5,
           agendaId: 0,
           order: 5.1,
           name: 'Switzerland / Austria / Italy',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 6,
           agendaId: 0,
           order: 5.2,
           name: 'Germany',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 7,
           agendaId: 0,
           order: 5.3,
           name: 'France',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
         },
         {
           id: 8,
           agendaId: 0,
           order: 6,
           name: 'Sales Marketing',
-          hasDocs: false
+          hasDocs: false,
+          isReadOnly: true
+        },
+        {
+          id: 9,
+          agendaId: 0,
+          order: 7,
+          name: 'Enter a new agenda item ...',
+          hasDocs: false,
+          isReadOnly: false
         }
       ],
       agendaDocs: [
