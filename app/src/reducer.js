@@ -2,6 +2,7 @@ import dotProp from 'dot-prop-immutable'
 import * as types from './actionsTypes'
 import deepFreeze from 'deep-freeze'
 import _ from 'lodash'
+import {createGuid} from './utility'
 
 const initialState = {
   agenda: {
@@ -315,6 +316,47 @@ const setAgendaItemsHasDocs = (state) => {
   return dotProp.set(state, 'agenda.data.agendaItems', agendas)
 }
 
+const getHighestOrder = (agendas) => agendas.sort((a, b) => a.order - b.order).reverse()[0].order
+
+const addItemToAgenda = (state, action) => {
+  deepFreeze(state)
+  const agendas = _.cloneDeep(state.agenda.data.agendaItems)
+
+  // identify from user input agenda item order and agenda name
+  const inputValue = action.payload.trim()
+  const parts = inputValue.split(' ')
+  const containOrder = parts.length > 0 && !isNaN(parts[0])
+
+  // create a new agenda item
+  const newAgendaItem = {
+    id: createGuid(),
+    agendaId: 0,
+    order: undefined,
+    name: undefined,
+    hasDocs: false,
+    isReadOnly: true
+  }
+
+  // if user input contains an order add order
+  if (containOrder) {
+    const order = Number(parts.shift())
+    newAgendaItem.order = order
+  } else {
+    // otherwise assign 1+ to the highest order
+    newAgendaItem.order = getHighestOrder(agendas) + 1
+  }
+  // set name
+  const name = parts.join(' ')
+  newAgendaItem.name = name
+
+  // add item to agenda
+  agendas.push(newAgendaItem)
+  // and sort agenda items asc
+  agendas.sort((a, b) => a.order - b.order)
+
+  return dotProp.set(state, 'agenda.data.agendaItems', agendas)
+}
+
 function reducer (state = initialState, action) {
   switch (action.type) {
     case types.ADD_DOCUMENTS_TO_AGENDA_ITEMS:
@@ -324,7 +366,8 @@ function reducer (state = initialState, action) {
 
     case types.ADD_ITEM_TO_AGENDA:
       console.log('reducer ADD_ITEM_TO_AGENDA')
-      return state
+
+      return addItemToAgenda(state, action)
 
     default:
       return state
