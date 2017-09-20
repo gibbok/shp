@@ -1,15 +1,16 @@
-/* .agenda__content__item,
-.agenda__content__item--active {
+.agenda__content__item__input,
+.agenda__content__item__input--active {
     height: 65px;
     border-bottom:1px solid #EEEEEE;
     display: flex;
     width:100%;
+    align-items: center;
 }
-.agenda__content__item:nth-child(even) {
+.agenda__content__item__input:nth-child(even) {
     background-color: #FFFFFF;
 }
-.agenda__content__item__order,
-.agenda__content__item__order--active {
+.agenda__content__item__input__order,
+.agenda__content__item__input__order--active {
     width: 110px;
     display: flex;
     justify-content: center;
@@ -17,8 +18,8 @@
     padding-top:5px;
     color:#444444;
 }
-.agenda__content__item__name,
-.agenda__content__item__name--active {
+.agenda__content__item__input__name,
+.agenda__content__item__input__name--active {
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -26,20 +27,26 @@
     padding-left:5px;
     color:#444444;
 }
-.agenda__content__item__name--active,
-.agenda__content__item__order--active {
+.agenda__content__item__input__name--active,
+.agenda__content__item__input__order--active {
     font-weight: 800;
 }
 
-.agenda__content__item--active{
-    animation-name: agenda__content__item__animation;
+.agenda__content__item__input--active{
+    animation-name: agenda__content__item__input__animation;
     animation-duration: 0.25s;
     animation-direction: alternate;
     animation-iteration-count: 2;
 }
 
-@keyframes agenda__content__item__animation {
+@keyframes agenda__content__item__input__animation {
     to {
         background-color:#E5F2FF;
     }
-} */
+} 
+
+
+.agenda__content__item__input__name {
+    border: 0 !important;
+    height: 40px;
+}
