@@ -1,0 +1,12 @@
+.document{
+    display: initial;
+    position: absolute;
+    top:20px;
+    left: 990px;
+    width:590px;
+    height: 875px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD; 
+    border-radius: 4px;
+    box-shadow: -10px -10px 15px -3px rgba(0,0,0,0.2);
+}

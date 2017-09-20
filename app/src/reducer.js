@@ -184,7 +184,7 @@ const initialState = {
         }
       ],
       document: {
-        isVisible: false
+        isVisible: true
       },
       agendaOptions: [
         {

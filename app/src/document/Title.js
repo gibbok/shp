@@ -1,9 +1,13 @@
 import React from 'react'
+import './Title.css'
+
 const Header = () => {
   return (
-    <h1>
+    <div className='document__title'>
+      <h1 className='document__title__value'>
         Add documents to agenda items
     </h1>
+    </div>
   )
 }
 

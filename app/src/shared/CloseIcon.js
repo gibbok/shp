@@ -1,7 +1,8 @@
 import React from 'react'
+import './CloseIcon.css'
 
 const CloseIcon = () => {
-  return (<div>CloseIcon</div>)
+  return (<div className='closeIcon'>✕</div>)
 }
 
 export default CloseIcon
