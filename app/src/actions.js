@@ -5,3 +5,8 @@ export const addDocumentsToAgendaItems = () => ({
   type: types.ADD_DOCUMENTS_TO_AGENDA_ITEMS,
   payload: undefined
 })
+
+export const addItemToAgenda = (itemName) => ({
+  type: types.ADD_ITEM_TO_AGENDA,
+  payload: itemName
+})

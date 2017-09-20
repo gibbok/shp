@@ -322,6 +322,10 @@ function reducer (state = initialState, action) {
       const state2 = setAgendaItemsHasDocs(state1)
       return state2
 
+    case types.ADD_ITEM_TO_AGENDA:
+      console.log('reducer ADD_ITEM_TO_AGENDA')
+      return state
+
     default:
       return state
   }
