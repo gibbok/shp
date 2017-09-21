@@ -292,6 +292,10 @@ const addDocumentsToAgendaItems = (state, action) => {
       .replace(/[^A-Z\d\s]/gi, '')            // remove any non alphanumeric characters
       .replace(/\s+/g, ' ').replace(' ', '_') // replace white spaces with low dashes
 
+    // if has no name do not search/match and return untouched state
+    if (nameToMatch.length === 0) {
+      return state
+    }
     // search if agenda.name is included in document.fileUrl
     const docsNameMatches = docs.filter(doc => doc.fileUrl.includes(nameToMatch))
     const hasExactNameMatch = docsNameMatches.length > 0
